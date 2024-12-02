@@ -1,0 +1,10 @@
+---
+- name: Make sure selinux is in enforcing mode
+  hosts: all
+  become: true
+  
+  tasks:
+  - name: Enable SELinux in enforcing mode
+    ansible.posix.selinux:
+      policy: targeted
+      state: enforcing
